@@ -1,195 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Anywhere Website</title>
-  <meta name="description" content="A fast, responsive one‑page website you can deploy anywhere." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0b1220;--card:#121a2b;--muted:#7f8da3;--fg:#e9eef7;--brand:#6aa7ff;--brand-2:#8fffda
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--fg)}
-    a{color:var(--brand);text-decoration:none}
-    a:hover{text-decoration:underline}
-    header{position:sticky;top:0;backdrop-filter:blur(10px);background:linear-gradient(180deg,rgba(11,18,32,.92),rgba(11,18,32,.75));z-index:10;border-bottom:1px solid rgba(255,255,255,.06)}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-    .nav a.brand{font-weight:800;letter-spacing:.3px}
-    .nav .links{display:flex;gap:18px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));color:var(--fg);cursor:pointer}
-    .btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#081019;font-weight:700}
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:72px 0}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:22px}
-    .headline{font-size:44px;line-height:1.1;margin:0 0 10px}
-    .sub{color:var(--muted);font-size:18px}
-    .grid{display:grid;gap:18px}
-    .features{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:34px}
-    .section{padding:60px 0}
-    .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:18px}
-    .kpi{padding:18px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.08);text-align:center}
-    .kpi .v{font-size:28px;font-weight:800}
-    .code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:13px;background:#0a0f1b;border-radius:12px;border:1px solid rgba(255,255,255,.1);padding:16px;overflow:auto}
-    footer{padding:40px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,.06);margin-top:40px}
-    input, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0a0f1b;color:var(--fg)}
-    label{display:block;margin:10px 0 6px;color:var(--muted)}
-    form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(138,180,248,.12);border:1px solid rgba(138,180,248,.3);color:#b8d0ff;font-weight:600;font-size:12px}
-    .illus{aspect-ratio:4/3;background:radial-gradient(1200px 500px at -10% -20%,rgba(138,180,248,.15),rgba(138,180,248,0)),radial-gradient(1200px 500px at 110% 120%,rgba(143,255,218,.16),rgba(143,255,218,0));border-radius:22px;border:1px dashed rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center}
-    .illus span{opacity:.8}
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-      .features{grid-template-columns:1fr}
-      .kpis{grid-template-columns:1fr 1fr}
-      form .row{grid-template-columns:1fr}
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vikram Allu — Personal Website</title>
+<meta name="description" content="Vikram Allu — Data & AI Solution Architect. Portfolio, projects, writing, and contact." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1220;--card:#121a2b;--muted:#8b96ac;--fg:#e9eef7;--brand:#6aa7ff;--brand-2:#8fffda}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--fg)}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+header{position:sticky;top:0;backdrop-filter:blur(10px);background:linear-gradient(180deg,rgba(11,18,32,.92),rgba(11,18,32,.75));z-index:10;border-bottom:1px solid rgba(255,255,255,.06)}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.nav a.brand{font-weight:800;letter-spacing:.3px}
+.nav .links{display:flex;gap:18px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));color:var(--fg);cursor:pointer}
+.btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#081019;font-weight:700}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:72px 0}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:22px}
+.headline{font-size:44px;line-height:1.1;margin:0 0 10px}
+.sub{color:var(--muted);font-size:18px}
+.grid{display:grid;gap:18px}
+.features{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:34px}
+.section{padding:60px 0}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:18px}
+.kpi{padding:18px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.08);text-align:center}
+.kpi .v{font-size:28px;font-weight:800}
+.code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:13px;background:#0a0f1b;border-radius:12px;border:1px solid rgba(255,255,255,.1);padding:16px;overflow:auto}
+footer{padding:40px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,.06);margin-top:40px}
+input, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0a0f1b;color:var(--fg)}
+label{display:block;margin:10px 0 6px;color:var(--muted)}
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(138,180,248,.12);border:1px solid rgba(138,180,248,.3);color:#b8d0ff;font-weight:600;font-size:12px}
+.illus{aspect-ratio:1;background:radial-gradient(1200px 500px at -10% -20%,rgba(138,180,248,.15),rgba(138,180,248,0)),radial-gradient(1200px 500px at 110% 120%,rgba(143,255,218,.16),rgba(143,255,218,0));border-radius:22px;border:1px dashed rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center}
+.illus span{opacity:.8}
+.timeline{border-left:2px solid rgba(255,255,255,.12);margin-left:8px;padding-left:18px}
+.t-item{margin-bottom:18px}
+.t-item h4{margin:.2rem 0}
+.skills{display:flex;flex-wrap:wrap;gap:10px}
+.pill{padding:8px 12px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));font-size:13px}
+@media (max-width: 900px){
+.hero{grid-template-columns:1fr}
+.features{grid-template-columns:1fr}
+.kpis{grid-template-columns:1fr 1fr}
+form .row{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#home">AnywhereSite</a>
-      <nav class="links">
-        <a href="#features">Features</a>
-        <a href="#get-started">Get Started</a>
-        <a href="#contact">Contact</a>
-        <a class="btn" href="#deploy">Deploy</a>
-      </nav>
-    </div>
-  </header>
+<header>
+<div class="container nav">
+<a class="brand" href="#home">Vikram Allu</a>
+<nav class="links">
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#experience">Experience</a>
+<a href="#contact" class="btn">Contact</a>
+<a class="btn primary" href="#resume">Resume</a>
+</nav>
+</div>
+</header>
 
-  <main class="container">
-    <section id="home" class="hero">
-      <div>
-        <div class="badge">Fast · Secure · Responsive</div>
-        <h1 class="headline">A website you can deploy <em>anywhere</em>.</h1>
-        <p class="sub">Drop this single <strong>index.html</strong> into any host (GitHub Pages, Netlify, Vercel, Cloudflare, S3, your own VPS) and you have a clean, modern site with no build tools.</p>
-        <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn primary" href="#get-started">Create Your Site</a>
-          <a class="btn" href="#deploy">How to Deploy</a>
-        </div>
-        <div class="kpis">
-          <div class="kpi"><div class="v">~10KB</div><div class="l">Single file</div></div>
-          <div class="kpi"><div class="v">0 deps</div><div class="l">No frameworks</div></div>
-          <div class="kpi"><div class="v">100%</div><div class="l">Mobile-ready</div></div>
-          <div class="kpi"><div class="v">HTTPS</div><div class="l">Everywhere</div></div>
-        </div>
-      </div>
-      <div class="illus card">
-        <span>👋 Replace this box with a screenshot/logo later</span>
-      </div>
-    </section>
 
-    <section id="features" class="section">
-      <h2>Features</h2>
-      <div class="grid features">
-        <div class="card">
-          <h3>Globally Accessible</h3>
-          <p class="sub">Host on any CDN for fast worldwide access. Works with custom domains and free SSL.</p>
-        </div>
-        <div class="card">
-          <h3>SEO + Social</h3>
-          <p class="sub">Semantic HTML, meta tags, and crisp performance give you solid search ranking foundations.</p>
-        </div>
-        <div class="card">
-          <h3>Easy to Edit</h3>
-          <p class="sub">Change text, colors, or sections directly in this file. No build step required.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="get-started" class="section">
-      <h2>Get Started</h2>
-      <ol class="sub">
-        <li>Click the edit icon in your editor and replace text, brand, and links.</li>
-        <li>Save this as <strong>index.html</strong> in a folder named <code>website</code>.</li>
-        <li>Deploy using any option below in <a href="#deploy">Deploy</a>.</li>
-      </ol>
-      <div class="card">
-        <pre class="code">&lt;!-- Change the title --&gt;
-&lt;title&gt;Vikram's Portfolio&lt;/title&gt;
-
-&lt;!-- Update the brand --&gt;
-&lt;a class="brand" href="#home"&gt;Vikram.dev&lt;/a&gt;
-
-&lt;!-- Replace the hero copy --&gt;
-&lt;h1 class="headline"&gt;I build data &amp; AI products.&lt;/h1&gt;
-&lt;p class="sub"&gt;22+ yrs in data platforms, ETL/BI migration, and agentic AI.&lt;/p&gt;</pre>
-      </div>
-    </section>
-
-    <section id="deploy" class="section">
-      <h2>Deploy Anywhere</h2>
-      <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-        <div class="card">
-          <h3>GitHub Pages (free)</h3>
-          <ol class="sub">
-            <li>Create a repo named <code>website</code>.</li>
-            <li>Add this <code>index.html</code> at the repo root. Commit &amp; push.</li>
-            <li>Open <em>Settings → Pages</em>, choose <em>Deploy from branch</em>, branch <code>main</code>, folder <code>/root</code>.</li>
-            <li>Wait 1–2 minutes. Your site is live. Add a custom domain if you have one.</li>
-          </ol>
-        </div>
-        <div class="card">
-          <h3>Netlify / Vercel / Cloudflare Pages</h3>
-          <ol class="sub">
-            <li>Sign in and click <em>New Site</em>.</li>
-            <li>Connect your Git repo (or drag‑drop the folder).</li>
-            <li>Build command: <code>None</code>. Publish dir: <code>/</code>.</li>
-            <li>Attach custom domain for global CDN + HTTPS.</li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <p class="sub">No backend required. This uses a <code>mailto:</code> link to open the visitor's email client.</p>
-      <form id="contact-form" class="card" onsubmit="return submitContact(event)">
-        <div class="row">
-          <div>
-            <label for="name">Name</label>
-            <input id="name" name="name" placeholder="Your name" required />
-          </div>
-          <div>
-            <label for="email">Email</label>
-            <input id="email" type="email" name="email" placeholder="you@example.com" required />
-          </div>
-        </div>
-        <label for="msg">Message</label>
-        <textarea id="msg" name="msg" rows="5" placeholder="Hello! I'd like to talk about..." required></textarea>
-        <div style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-          <button class="btn primary" type="submit">Send</button>
-          <span class="sub">Or email me: <a href="mailto:hello@example.com">hello@example.com</a></span>
-        </div>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
-        <span>© <span id="year"></span> AnywhereSite</span>
-        <span class="sub">Made with a single HTML file ✨</span>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    function submitContact(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const msg = document.getElementById('msg').value.trim();
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${msg}`);
-      window.location.href = `mailto:hello@example.com?subject=Website%20Contact%20from%20${encodeURIComponent(name)}&body=${body}`;
-      return false;
-    }
-  </script>
-</body>
+<main class="container">
+<!-- Hero -->
+<section id="home" class="hero">
+<div>
+<div class="badge">Data & AI Solution Architect · 22+ years</div>
+<h1 class="headline">I design and build agentic, cloud‑scale data & AI systems.</h1>
+<p class="sub">Hands‑on with Python, Spark, Azure OpenAI, Databricks, Snowflake, Microsoft Fabric. I specialize in ETL/BI migration accelerators, schema‑drift management, and conversational insight apps for financial services.</p>
+<div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+<a class="btn primary" href="#projects">View Projects</a>
+<a class="btn" href="#contact">Email Me</a>
+<a class="btn" href="#resume">Resume</a>
+</div>
+<div class="skills" style="margin-top:16px">
+<span class="pill">Azure OpenAI</span>
+<span class="pill">Databricks</span>
+<span class="pill">Snowflake</span>
 </html>
