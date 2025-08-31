@@ -50,7 +50,9 @@
     <div class="container nav">
       <div class="brand">Vikram Allu — Data Entrepreneur</div>
       <nav class="links">
-        <a href="#summary">Summary</a>
+        <a href="#profile">Profile</a>
+        <a href="#vision">Vision</a>
+        <a href="#roadmap">Roadmap</a>
         <a href="#library">Library</a>
         <a href="#interactions">Interactions</a>
         <a href="#contact" class="btn primary">Contact</a>
@@ -63,7 +65,7 @@
       <h1>Data Entrepreneur</h1>
       <p class="lead">On a journey to found a startup — building platforms, publishing ideas, and interacting with business leaders to shape the future of data & AI.</p>
       <div style="margin-top:16px">
-        <a class="btn" href="#library">Explore Ideas</a>
+        <a class="btn" href="#library">Explore Library</a>
         <a class="btn primary" href="#interactions">Join Interactions</a>
       </div>
     </div>
@@ -73,17 +75,53 @@
   </section>
 
   <main class="container">
-    <section id="summary" class="section">
-      <h2>Executive Summary</h2>
+    <section id="profile" class="section">
+      <h2>Profile</h2>
       <div class="card">
         <p class="lead">I am Vikram Allu, a Data Entrepreneur preparing to launch my own venture. With 22+ years of enterprise experience, I focus on modernizing data estates, building agentic AI solutions, and driving measurable outcomes. This site is my platform to share concepts, POVs, solutions, and papers — and to engage meaningfully with business leaders.</p>
+      </div>
+    </section>
+
+    <section id="vision" class="section">
+      <h2>Vision</h2>
+      <div class="card">
+        <p class="lead">My vision is to bridge the gap between complex data architectures and real-world business outcomes. I believe in governed innovation: combining scalable engineering with the agility of AI, and partnering with leaders to co-create solutions that matter.</p>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section">
+      <h2>Roadmap</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Q4 2025 — Founder Readiness</h3>
+          <ul class="list">
+            <li>10+ leader interviews to refine problem statements</li>
+            <li>Publish 2 POVs + 1 paper on modernization & guardrails</li>
+            <li>Define pricing signals & success metrics</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Q1 2026 — Pilot Builds</h3>
+          <ul class="list">
+            <li>Secure two design partners; scope pilots with SLAs</li>
+            <li>Measure ROI (effort, time‑to‑value, risk reduction)</li>
+            <li>Document learnings in the Library</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Q2 2026 — Venture Decision</h3>
+          <ul class="list">
+            <li>Select focus area & operating model</li>
+            <li>Form advisory group with 3–5 leaders</li>
+            <li>Plan fundraising (if needed)</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- Library / Publications -->
     <section id="library" class="section">
       <h2>Library</h2>
-      <div class="card" style="margin-bottom:14px">$1</div>
       <div class="card" style="margin-bottom:14px">
         <strong>How to publish your files:</strong>
         <ol class="lead" style="margin-left:18px">
@@ -102,9 +140,8 @@
       <div id="items" class="grid-3" style="margin-top:14px"></div>
     </section>
 
-    <!-- Interactions -->
     <section id="interactions" class="section">
-      <h2>Leader Interactions</h2>
+      <h2>Interactions</h2>
       <div class="card">
         <p class="lead">This section is dedicated to interactive idea exchange with business leaders. Share perspectives, comment on my concepts, or propose collaborations.</p>
         <form onsubmit="return submitInteraction(event)">
@@ -122,7 +159,6 @@
       <div id="interactionList" style="margin-top:14px"></div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="section">
       <h2>Contact</h2>
       <div class="card">
@@ -138,7 +174,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Placeholder Library Data
     const LIBRARY_DATA = [
       {type:'solution', title:'Solution 1', desc:'Upload your document or link here.', link:'#'},
       {type:'solution', title:'Solution 2', desc:'Upload your document or link here.', link:'#'},
@@ -161,20 +196,25 @@
       {type:'paper', title:'Paper 4', desc:'Upload your document or link here.', link:'#'},
       {type:'paper', title:'Paper 5', desc:'Upload your document or link here.', link:'#'}
     ];
-    const itemsEl = document.getElementById('items');
-    LIBRARY_DATA.forEach(i=>{
-      const card = document.createElement('article');
-      card.className = 'card';
-      card.innerHTML = `
-        <h3>${i.title}</h3>
-        <p class='lead'>${i.desc}</p>
-        <a class='btn' href='${i.link}' target='_blank'>Preview</a>
-        <a class='btn primary' href='${i.link}' target='_blank'>Open</a>
-      `;
-      itemsEl.appendChild(card);
+
+    function renderLibrary(type='all'){
+      const itemsEl = document.getElementById('items');
+      itemsEl.innerHTML='';
+      LIBRARY_DATA.filter(i=> type==='all' || i.type===type).forEach(i=>{
+        const card=document.createElement('article');
+        card.className='card';
+        card.innerHTML=`<h3>${i.title}</h3><p class='lead'>${i.desc}</p><a class='btn' href='${i.link}' target='_blank'>Preview</a> <a class='btn primary' href='${i.link}' target='_blank'>Open</a>`;
+        itemsEl.appendChild(card);
+      });
+    }
+    renderLibrary();
+    document.querySelectorAll('.tabs .btn').forEach(b=>{
+      b.addEventListener('click',()=>{
+        const t=b.dataset.tab;
+        renderLibrary(t);
+      });
     });
 
-    // Interactions logic (client-side mock)
     function submitInteraction(e){
       e.preventDefault();
       const name=document.getElementById('iname').value;
@@ -188,49 +228,5 @@
       return false;
     }
   </script>
-<script>
-// --- Studio Tabs Enhancer (non-destructive) ---
-(function(){
-  try{
-    if(typeof LIBRARY_DATA === 'undefined') return;
-    const btn = (t)=>document.querySelector(`[data-filter="${t}"]`);
-    const tabs = {all:btn('all'), concept:btn('concept'), pov:btn('pov'), solution:btn('solution'), paper:btn('paper')};
-    function counts(){
-      const c = {all: LIBRARY_DATA.length, concept:0, pov:0, solution:0, paper:0};
-      LIBRARY_DATA.forEach(i=>{ if(c[i.type]!==undefined) c[i.type]++; });
-      return c;
-    }
-    function labelize(){
-      const c = counts();
-      if(tabs.all) tabs.all.textContent = `All (${c.all})`;
-      if(tabs.concept) tabs.concept.textContent = `Concepts (${c.concept})`;
-      if(tabs.pov) tabs.pov.textContent = `POVs (${c.pov})`;
-      if(tabs.solution) tabs.solution.textContent = `Solutions (${c.solution})`;
-      if(tabs.paper) tabs.paper.textContent = `Papers (${c.paper})`;
-    }
-    function select(type){
-      const target = tabs[type] || tabs.all;
-      if(target){ target.click(); }
-      labelize();
-    }
-    function fromHash(){
-      const h=(location.hash||'').toLowerCase();
-      const m=h.match(/#studio(?:-|%2d)?(concept|pov|solution|paper)/);
-      select(m?m[1]:'all');
-    }
-    Object.entries(tabs).forEach(([t,el])=>{
-      if(!el) return;
-      el.addEventListener('click', ()=>{
-        const hash = t==='all' ? '#studio' : `#studio-${t}`;
-        if(location.hash!==hash){ history.replaceState(null,'',hash); }
-        labelize();
-      });
-    });
-    labelize();
-    fromHash();
-    window.addEventListener('hashchange', fromHash);
-  }catch(e){ /* silently fail without breaking page */ }
-})();
-</script>
 </body>
 </html>
