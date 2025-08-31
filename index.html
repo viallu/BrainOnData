@@ -92,7 +92,14 @@
           <li>Commit to GitHub — the site updates automatically.</li>
         </ol>
       </div>
-      <div id="items" class="grid-3"></div>
+      <div class="tabs" style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" data-tab="all">All</button>
+        <button class="btn" data-tab="solution">Solutions</button>
+        <button class="btn" data-tab="pov">POVs</button>
+        <button class="btn" data-tab="concept">Concepts</button>
+        <button class="btn" data-tab="paper">Papers</button>
+      </div>
+      <div id="items" class="grid-3" style="margin-top:14px"></div>
     </section>
 
     <!-- Interactions -->
@@ -181,5 +188,49 @@
       return false;
     }
   </script>
+<script>
+// --- Studio Tabs Enhancer (non-destructive) ---
+(function(){
+  try{
+    if(typeof LIBRARY_DATA === 'undefined') return;
+    const btn = (t)=>document.querySelector(`[data-filter="${t}"]`);
+    const tabs = {all:btn('all'), concept:btn('concept'), pov:btn('pov'), solution:btn('solution'), paper:btn('paper')};
+    function counts(){
+      const c = {all: LIBRARY_DATA.length, concept:0, pov:0, solution:0, paper:0};
+      LIBRARY_DATA.forEach(i=>{ if(c[i.type]!==undefined) c[i.type]++; });
+      return c;
+    }
+    function labelize(){
+      const c = counts();
+      if(tabs.all) tabs.all.textContent = `All (${c.all})`;
+      if(tabs.concept) tabs.concept.textContent = `Concepts (${c.concept})`;
+      if(tabs.pov) tabs.pov.textContent = `POVs (${c.pov})`;
+      if(tabs.solution) tabs.solution.textContent = `Solutions (${c.solution})`;
+      if(tabs.paper) tabs.paper.textContent = `Papers (${c.paper})`;
+    }
+    function select(type){
+      const target = tabs[type] || tabs.all;
+      if(target){ target.click(); }
+      labelize();
+    }
+    function fromHash(){
+      const h=(location.hash||'').toLowerCase();
+      const m=h.match(/#studio(?:-|%2d)?(concept|pov|solution|paper)/);
+      select(m?m[1]:'all');
+    }
+    Object.entries(tabs).forEach(([t,el])=>{
+      if(!el) return;
+      el.addEventListener('click', ()=>{
+        const hash = t==='all' ? '#studio' : `#studio-${t}`;
+        if(location.hash!==hash){ history.replaceState(null,'',hash); }
+        labelize();
+      });
+    });
+    labelize();
+    fromHash();
+    window.addEventListener('hashchange', fromHash);
+  }catch(e){ /* silently fail without breaking page */ }
+})();
+</script>
 </body>
 </html>
